@@ -1,53 +1,77 @@
-name: Deploy to GitHub Pages
+# name: Deploy to GitHub Pages
 
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout the repository
+#         uses: actions/checkout@v4
+
+#       - name: Setup Node.js environment
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: "16"
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Configure Git
+#         run: |
+#           git config --global user.email "mattoliver.mattoliver@gmail.com"
+#           git config --global user.name "TheeMattOliver"
+
+#       - name: Build the project
+#         run: npm run build
+
+#       - name: Deploy to GitHub Pages
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         run: |
+#           npm run build && npx gh-pages -d dist -r https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+#       - name: Deploy to Preview Environment
+#         if: github.event_name == 'pull_request'
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         run: |
+#           git config --global user.email "mattoliver.mattoliver@gmail.com"
+#           git config --global user.name "TheeMattOliver"
+#           git checkout -b gh-pages-preview-${{ github.event.number }}
+#           rm -rf .git
+#           git init
+#           git add .
+#           git commit -m "Deploy preview for PR #${{ github.event.number }}"
+#           git push --force https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages-preview-${{ github.event.number }}
+name: Deploy to GitHub Pages
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: "16"
-
+          node-version: "18"
       - name: Install dependencies
-        run: npm install
-
-      - name: Configure Git
-        run: |
-          git config --global user.email "mattoliver.mattoliver@gmail.com"
-          git config --global user.name "TheeMattOliver"
-
-      - name: Build the project
+        run: npm ci
+      - name: Build project
         run: npm run build
-
       - name: Deploy to GitHub Pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npm run build && npx gh-pages -d dist -r https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-
-      - name: Deploy to Preview Environment
-        if: github.event_name == 'pull_request'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.email "mattoliver.mattoliver@gmail.com"
-          git config --global user.name "TheeMattOliver"
-          git checkout -b gh-pages-preview-${{ github.event.number }}
-          rm -rf .git
-          git init
-          git add .
-          git commit -m "Deploy preview for PR #${{ github.event.number }}"
-          git push --force https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages-preview-${{ github.event.number }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
