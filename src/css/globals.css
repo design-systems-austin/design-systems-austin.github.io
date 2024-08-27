@@ -148,7 +148,7 @@ body {
   --text-scale-screen-difference: calc(var(--text-scale-screen-max) - var(--text-scale-screen-min));
   --text-scale-percentage: calc(var(--text-scale-offset) / var(--text-scale-screen-difference) * 16);
   /**/
-  --header-width: 74px;
+  --header-width: 96px;
   --header-height: 44px;
   /* color */
   --bg: #ffffff;

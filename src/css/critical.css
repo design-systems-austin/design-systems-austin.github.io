@@ -93,7 +93,11 @@ header .nav .nav-links li a:hover {
   text-align: left;
 }
 .hero h1 {
-  max-width: 10em;
+  max-width: 12em;
+}
+.hero p {
+  max-width: 47ch;
+  margin-top: 2rem;
 }
 @media (min-width: 768px) {
   .hero-wrapper {
@@ -199,7 +203,7 @@ section.box {
     position: fixed;
     top: 0;
     width: 250px;
-    left: var(--header-width);
+    left: calc(var(--header-width) - 18px);
     height: 100%;
     background-color: #ffffff;
     color: #121212;
@@ -523,7 +527,8 @@ section.box {
 }
 /* menu link */
 .menu-item {
-  font-family: var(--font-family-sans-serif);
+  /* font-family: var(--font-family-sans-serif); */
+  font-family: var(--font-family-abc-arizona-flare-light), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   line-height: 0.97;
   letter-spacing: -0.07em;
   font-weight: 300;
@@ -540,7 +545,7 @@ section.box {
 
 @media (min-width: 768px) {
   .menu-item {
-    font-family: var(--font-family-sans-serif);
+    /* font-family: var(--font-family-sans-serif); */
     font-weight: 300;
     line-height: 0.97;
     letter-spacing: -0.04em;
