@@ -17,5 +17,11 @@
     "lint:frontend": "npm --prefix apps/frontend run lint",
     "lint:backend": "npm --prefix apps/backend run lint",
     "lint": "npm run lint:frontend && npm run lint:backend"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "eslint": "^8.57.1",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.6.0"
   }
 }
