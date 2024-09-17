@@ -16,7 +16,9 @@
     "test": "npm run test:frontend && npm run test:backend",
     "lint:frontend": "npm --prefix apps/frontend run lint",
     "lint:backend": "npm --prefix apps/backend run lint",
-    "lint": "npm run lint:frontend && npm run lint:backend"
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "release": "npm run build && changeset version && changeset publish",
+    "release-fake": "npm run build && echo 'No-op for changesets since we dont publish to npm'"
   },
   "devDependencies": {
     "@eslint/js": "^9.10.0",
