@@ -1,0 +1,13 @@
+{
+  "name": "design-systems-community",
+  "private": true,
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend"
+  ],
+  "scripts": {
+    "start:frontend": "npm --prefix apps/frontend run dev",
+    "start:backend": "npm --prefix apps/backend run start",
+    "build:backend": "npm --prefix apps/backend run build"
+  }
+}

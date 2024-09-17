@@ -1,0 +1,165 @@
+@font-face {
+  font-family: "ABCArizonaFlare-Bold-Trial";
+  src: url("/fonts/ABCArizonaFlare-Bold-Trial.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ABCArizonaFlare-BoldItalic-Trial";
+  src: url("/fonts/ABCArizonaFlare-BoldItalic-Trial.woff2") format("woff2");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ABCArizonaFlare-Light-Trial";
+  src: url("/fonts/ABCArizonaFlare-Light-Trial.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ABCArizonaFlare-LightItalic-Trial";
+  src: url("/fonts/ABCArizonaFlare-LightItalic-Trial.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ABCArizonaFlare-Medium-Trial";
+  src: url("/fonts/ABCArizonaFlare-Medium-Trial.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ABCArizonaFlare-MediumItalic-Trial";
+  src: url("/fonts/ABCArizonaFlare-MediumItalic-Trial.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ABCArizonaFlare-Regular-Trial";
+  src: url("/fonts/ABCArizonaFlare-Regular-Trial.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ABCArizonaFlare-RegularItalic-Trial";
+  src: url("/fonts/ABCArizonaFlare-RegularItalic-Trial.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "ABCArizonaFlare-Thin-Trial";
+  src: url("/fonts/ABCArizonaFlare-Thin-Trial.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ABCArizonaFlare-ThinItalic-Trial";
+  src: url("/fonts/ABCArizonaFlare-ThinItalic-Trial.woff2") format("woff2");
+  font-weight: 100;
+  font-style: italic;
+}
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#app_root {
+  isolation: isolate;
+  height: 100%;
+}
+/**
+ * 9. Base styles
+ */
+html,
+body {
+  direction: ltr;
+  scroll-behavior: smooth;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell,
+    Ubuntu, roboto, noto, arial, sans-serif;
+  padding: 0;
+  font-size: 16px;
+  color: var(--text);
+  background-color: var(--bg);
+}
+:root {
+  --font-family-abc-arizona-flare-light: "ABCArizonaFlare-Light-Trial";
+  --font-family-abc-arizona-flare-bold: "ABCArizonaFlare-Bold-Trial";
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica,
+    Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  --text-scale-screen-max: 1920;
+  --text-scale-screen-min: 640;
+  --text-scale-offset: calc(100vw - var(--text-scale-screen-min) * 1px);
+  --text-scale-screen-difference: calc(var(--text-scale-screen-max) - var(--text-scale-screen-min));
+  --text-scale-percentage: calc(var(--text-scale-offset) / var(--text-scale-screen-difference) * 16);
+  /**/
+  --header-width: 96px;
+  --header-height: 44px;
+  /* color */
+  --bg: #ffffff;
+  --text: #111111;
+  --text-inverse: #ffffff;
+  --bg-hovered: #091e420f;
+  --bg-pressed: #091e4224;
+  --border: rgba(229, 231, 235, 0.98);
+  --border-focus: #007bff;
+  --overlay: #091e427d; /* dark: #10121499*/
+  /* radii */
+  --radius-sm: 0.25rem;
+  /**/
+}

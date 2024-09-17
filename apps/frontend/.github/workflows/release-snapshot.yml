@@ -1,0 +1,52 @@
+# .github/workflows/ci.yml
+name: Release snapshot
+on:
+  push:
+    branches-ignore:
+      - "main"
+      - "changest-release/**"
+      - "dependabot/**"
+
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Install
+      - name: Install dependencies
+        run: npm install
+
+      # Build
+      - name: Build
+        run: npm run build
+
+      # Test
+      - name: Test
+        run: npm run test
+
+      - name: Create .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Release snapshot
+        # run: |
+        #   npx changeset version --snapshot
+        #   npx changeset publish --tag snapshot
+        run: |
+          echo "No op, we aren't publishing this"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
