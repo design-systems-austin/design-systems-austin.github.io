@@ -5,9 +5,17 @@
     "apps/frontend",
     "apps/backend"
   ],
-  "scripts": {
+ "scripts": {
     "start:frontend": "npm --prefix apps/frontend run dev",
     "start:backend": "npm --prefix apps/backend run start",
-    "build:backend": "npm --prefix apps/backend run build"
+    "build:frontend": "npm --prefix apps/frontend run build",
+    "build:backend": "npm --prefix apps/backend run build",
+    "build": "npm run build:frontend && npm run build:backend",  
+    "test:frontend": "npm --prefix apps/frontend run test",
+    "test:backend": "npm --prefix apps/backend run test",
+    "test": "npm run test:frontend && npm run test:backend",    
+    "lint:frontend": "npm --prefix apps/frontend run lint",
+    "lint:backend": "npm --prefix apps/backend run lint",
+    "lint": "npm run lint:frontend && npm run lint:backend"      
   }
 }
