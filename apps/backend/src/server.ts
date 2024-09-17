@@ -1,44 +1,39 @@
 import express from "express";
+import cors from "cors";
 import bodyParser from "body-parser";
-// import { Client } from "@notionhq/client"; // Notion code commented out
+import { Client } from "@notionhq/client";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const app = express();
-// const notion = new Client({ auth: process.env.NOTION_API_KEY }); // Notion code commented out
+const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
+app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.json());
 
-// Simple ping route
+// Your existing routes
 app.get("/ping", (req, res) => {
   res.send("ping");
 });
 
-// Example RSVP route (commented out)
-// app.post("/rsvp", async (req, res) => {
-//   const { name, email } = req.body;
+app.get("/api/notion-events", async (req, res) => {
+  try {
+    const databaseId =
+      process.env.NOTION_DATABASE_ID || "104f3a11-dfb4-80ed-9237-def93f7b3695";
+    const response = await notion.databases.query({
+      database_id: databaseId,
+    });
 
-//   if (!name || !email) {
-//     return res.status(400).json({ message: "Name and Email are required" });
-//   }
+    // Send the results back to the client
+    res.json(response.results);
+  } catch (error) {
+    console.error("Error fetching events from Notion:", error);
+    res.status(500).json({ error: "Failed to fetch events from Notion" });
+  }
+});
 
-//   try {
-//     await notion.pages.create({
-//       parent: { database_id: process.env.NOTION_DATABASE_ID },
-//       properties: {
-//         Name: { title: [{ text: { content: name } }] },
-//         Email: { rich_text: [{ text: { content: email } }] },
-//       },
-//     });
-//     res.status(200).json({ message: "RSVP saved!" });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: "Failed to save RSVP", error });
-//   }
-// });
-
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -203,7 +203,8 @@ section.box {
     position: fixed;
     top: 0;
     width: 250px;
-    left: calc(var(--header-width) - 18px);
+    /* @TODO, this number we're subtracting is a magic number */
+    left: calc(var(--header-width) - 19px);
     height: 100%;
     background-color: #ffffff;
     color: #121212;

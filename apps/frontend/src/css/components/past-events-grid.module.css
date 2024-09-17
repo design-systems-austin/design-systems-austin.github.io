@@ -1,0 +1,28 @@
+.past-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--radius-sm);
+  padding: var(--radius-sm);
+}
+
+.past-event {
+  border: 1px solid var(--border);
+  padding: var(--radius-sm);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-hovered);
+}
+
+.past-event h3 {
+  font-size: calc(1.5rem + var(--text-scale-percentage));
+  margin-bottom: calc(0.625rem + var(--text-scale-percentage));
+}
+
+.past-event p {
+  font-size: calc(1rem + var(--text-scale-percentage));
+  margin-bottom: calc(0.5rem + var(--text-scale-percentage));
+}
+
+.past-event a {
+  color: var(--bg-primary);
+  text-decoration: none;
+}

@@ -162,4 +162,7 @@ body {
   /* radii */
   --radius-sm: 0.25rem;
   /**/
+  --bg-brand-bold: #007bff;
+  --bg-brand-bold-hovered: #0055cc;
+  --bg-brand-bold-pressed: #09326c;
 }
