@@ -52,7 +52,7 @@ export function initNavigation() {
                 }, 300) // Wait for the slide-out animation to complete
               }, 100) // Make the text disappear faster
             } else {
-              sidebar.style.display = "block"
+              sidebar.style.display = "flex"
               setTimeout(() => {
                 sidebar.classList.add("open")
                 setTimeout(() => {

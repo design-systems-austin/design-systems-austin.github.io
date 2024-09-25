@@ -63,7 +63,7 @@ header .nav .nav-links li a:hover {
 .hero-wrapper {
   padding: 8px;
   height: 100vh;
-  z-index: -1;
+  /* z-index: -1; */
 }
 .hero {
   display: flex;
@@ -206,7 +206,9 @@ section.box {
     display: none;
   }
   .sidebar {
-    display: block;
+    /* display: block; */
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     width: 250px;
@@ -223,7 +225,9 @@ section.box {
     pointer-events: none;
   }
   .sidebar.open {
-    display: block;
+    /* display: block; */
+    display: flex;
+    flex-direction: column;
     transform: translateX(0);
     opacity: 1;
     transition: transform 0.2s ease-out, opacity 0.2s ease-out, visibility 0s;
@@ -593,4 +597,123 @@ section.box {
 .indicator.active {
   background-color: var(--bg-pressed);
   transform: scale(1.4);
+}
+
+/* RSVP button*/
+@media (max-width: 768px) {
+  .hero-content-container {
+    align-items: center;
+    flex-direction: column;
+  }
+  .rsvp-button-wrapper {
+    margin-top: 24px;
+  }
+}
+@media (min-width: 768px) {
+  .hero-content-container {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .rsvp-button-wrapper {
+    margin-top: auto;
+  }
+  .rsvp-button {
+    padding: 14px 32px;
+  }
+}
+.hero-content-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.rsvp-button {
+  display: flex;
+  padding: 14px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+
+  border-radius: 16px;
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  color: var(--bg-brand-bold);
+  text-decoration: none;
+  /* font-weight: bold; */
+  cursor: pointer;
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.rsvp-button:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.rsvp-button:active {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.rsvp-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--bg-brand-bold), 0 0 0 8px #ffffff;
+  transition: box-shadow 0.2s ease-out;
+}
+/* Icon Row */
+.icon-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  transition: transform 0.3s ease-in-out;
+  padding: 1rem 1rem 1.2rem;
+}
+
+/* Icon Link */
+.icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: transparent; /* Initially transparent */
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+
+  color: var(--text);
+  transition: color 0.2s ease-out, transform 0.2s ease-out;
+  outline: none;
+}
+
+.icon-link:hover {
+  background-color: var(--bg-hovered);
+  color: var(--text-hover);
+}
+.icon-link:active {
+  background-color: var(--bg-pressed);
+  color: var(--text-hover);
+}
+.icon-link:focus {
+  box-shadow: 0 0 0 2px var(--bg-brand-bold), 0 0 0 6px #ffffff;
+}
+
+/* SVG Icons */
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor; /* Ensure the icon inherits the color from its parent */
+}
+
+/* Transition for Smooth Hover Effects */
+.icon-link:hover .icon {
+  transition: fill 0.2s ease-out;
+}
+
+/* Adjust size for larger screens */
+@media (min-width: 768px) {
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
 }
