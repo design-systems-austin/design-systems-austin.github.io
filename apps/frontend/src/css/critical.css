@@ -8,6 +8,13 @@
   padding: 16px;
   border-radius: 24px;
 }
+.borderless-section {
+  padding: 16px;
+  border-radius: 24px;
+}
+.speakers-grid-wrapper {
+  padding: 88px 34px;
+}
 header {
   box-sizing: border-box;
   min-width: 0;
