@@ -553,8 +553,36 @@ section.box {
     var(--text-scale-percentage) * (var(--text-scale-max) - var(--text-scale-min)) + var(--text-scale-min-rem)
   );
   font-size: max(var(--text-scale-min-rem), var(--text-scale-current-rem));
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: transparent; /* Initially transparent */
+  transition: background-color 0.2s ease-out, box-shadow 0.2s ease-out;
 
+  color: var(--text);
+  transition: color 0.2s ease-out, transform 0.2s ease-out;
+  outline: none;
+  text-decoration: none;
+}
+.nav-links li a:hover {
+  text-decoration: none;
+}
+.menu-item:hover {
+  text-decoration: none;
+}
+.menu-item:hover {
+  background-color: var(--bg-hovered);
+  color: var(--text-hover);
+}
+.menu-item:active {
+  background-color: var(--bg-pressed);
+  color: var(--text-hover);
+}
+.menu-item:focus {
+  box-shadow: 0 0 0 2px var(--bg-brand-bold), 0 0 0 6px #ffffff;
+}
 @media (min-width: 768px) {
   .menu-item {
     /* font-family: var(--font-family-sans-serif); */
