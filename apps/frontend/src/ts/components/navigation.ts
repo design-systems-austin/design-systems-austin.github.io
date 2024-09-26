@@ -74,7 +74,7 @@ export function initNavigation() {
                 }, 300) // Wait for the slide-out animation to complete
               }, 100) // Make the text disappear faster
             } else {
-              mobileSidebar.style.display = "block"
+              mobileSidebar.style.display = "flex"
               setTimeout(() => {
                 mobileSidebar.classList.add("open")
                 setTimeout(() => {
