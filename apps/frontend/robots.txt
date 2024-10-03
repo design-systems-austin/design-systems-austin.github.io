@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /               # Allows access to all other URLs
+
+# Optional: Link to your sitemap
+Sitemap: https://designsystemsaustin.com/sitemap.xml
