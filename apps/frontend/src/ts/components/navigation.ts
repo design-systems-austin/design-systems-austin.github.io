@@ -33,7 +33,7 @@ export function initNavigation() {
     }
 
     if (hamburgerMenuButtons.length > 0) {
-      hamburgerMenuButtons.forEach((button, index) => {
+      hamburgerMenuButtons.forEach((button) => {
         button.addEventListener("click", () => {
           if (sidebar) {
             if (sidebar.classList.contains("open")) {
