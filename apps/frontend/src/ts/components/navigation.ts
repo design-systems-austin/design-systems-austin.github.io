@@ -1,6 +1,5 @@
 export function initNavigation() {
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOMContentLoaded event fired")
     const hamburgerMenuButtons = document.querySelectorAll(".hamburger-menu-button")
     const sidebar = document.querySelector(".sidebar") as HTMLElement | null
     const mobileSidebar = document.querySelector(".mobile-sidebar") as HTMLElement | null
@@ -10,8 +9,6 @@ export function initNavigation() {
     const mobileSidebarContent = mobileSidebar?.querySelector("ul") as HTMLElement | null
 
     const closeSidebar = () => {
-      console.log("closeSidebar function called")
-
       if (sidebar) {
         sidebarContent?.classList.remove("visible")
         setTimeout(() => {
@@ -37,12 +34,8 @@ export function initNavigation() {
 
     if (hamburgerMenuButtons.length > 0) {
       hamburgerMenuButtons.forEach((button, index) => {
-        console.log(`Hamburger menu button ${index + 1} found: `, button)
-
         button.addEventListener("click", () => {
-          console.log(`Hamburger menu button ${index + 1} clicked`)
           if (sidebar) {
-            console.log("Sidebar exists on click: ", sidebar)
             if (sidebar.classList.contains("open")) {
               sidebarContent?.classList.remove("visible")
               setTimeout(() => {
@@ -64,7 +57,6 @@ export function initNavigation() {
             console.error("Sidebar not found on click")
           }
           if (mobileSidebar) {
-            console.log("mobileSidebar exists on click: ", mobileSidebar)
             if (mobileSidebar.classList.contains("open")) {
               mobileSidebarContent?.classList.remove("visible")
               setTimeout(() => {

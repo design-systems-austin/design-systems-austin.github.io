@@ -39,7 +39,6 @@ export const renderNextEvent = async () => {
 
   // Fetch the events
   const events = await fetchEvents()
-  console.log("got events: ", events)
 
   // Remove the spinner after data is loaded
   removeSpinner()

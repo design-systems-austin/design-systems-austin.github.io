@@ -37,7 +37,6 @@ export const renderPastEvents = async () => {
 
   // Fetch the events
   const events = await fetchEvents()
-  console.log("got events: ", events)
 
   // Filter past events by comparing their date with the current date
   const now = new Date()
