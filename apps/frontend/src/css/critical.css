@@ -72,12 +72,14 @@ header .nav .nav-links li a:hover {
   justify-content: center;
   text-align: center;
   padding: 2rem;
-  background: #007bff;
-  /* background: deeppink; */
+  background: var(--bg-brand-bold);
 
-  color: #fff;
+  color: var(--text-inverse);
   border-radius: 16px;
   height: 100%;
+}
+.hero:has(a:focus) {
+  background: var(--bg-brand-bold-hovered);
 }
 .hero-container {
   height: 100svh;
