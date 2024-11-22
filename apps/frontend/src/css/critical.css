@@ -77,6 +77,7 @@ header .nav .nav-links li a:hover {
   color: var(--text-inverse);
   border-radius: 16px;
   height: 100%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 .hero:has(a:focus) {
   background: var(--bg-brand-bold-hovered);
@@ -684,17 +685,17 @@ section.box {
 }
 
 .rsvp-button:hover {
-  background: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--bg-brand-bold);
 }
 
 .rsvp-button:active {
-  background: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .rsvp-button:focus {
   outline: none;
   box-shadow: 0 0 0 4px var(--bg-brand-bold), 0 0 0 8px #ffffff;
-  transition: box-shadow 0.2s ease-out;
 }
 /* Icon Row */
 .icon-row {
